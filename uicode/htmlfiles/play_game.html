@@ -1,0 +1,97 @@
+
+<script src="../jsfiles/angular.min.js"></script>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../cssfiles/bootstrap.min.css">
+  <script src="../jsfiles/jquery.min.js"></script>
+  <script src="../jsfiles/bootstrap.min.js"></script>
+  <script src="../jsfiles/angular.js"></script>
+  <script src="../jsfiles/angular-animate.js"></script>
+  <script src="../jsfiles/angular-sanitize.js"></script>
+  <script src="../jsfiles/ui-bootstrap-tpls-2.5.0.js"></script>
+  <script src="../jsfiles/play_game.js"></script>
+</head>
+
+<body style="background-color:rgb(219, 189, 105)">
+
+	<div ng-app="myApp" ng-controller="myCtrl" style="margin-left:10%;margin-right:10%;margin-top:50px;width:80%">
+
+        <div class="container">
+            <h1 align="center">TIC-TAC-TOE</h1>
+        </div>
+          
+            <div class="raw" style="height: 100px">
+                <div class="col-sm-4 col bg-success" style="height: 100px">
+                    <h4>A11</h4>
+                    <button type="button" ng-click="my_move(0,0)" class="btn btn-block btn-lg btn-link center-block">    
+                            {{game.cstate[0][0]}}
+                    </button>
+                </div>
+                <div class="col-sm-4 col bg-warning" style="height: 100px">
+                    <h4>A12</h4>
+                    <button type="button" ng-click="my_move(0,1)" class="btn btn-block btn-lg btn-link center-block">    
+                            {{game.cstate[0][1]}}
+                    </button>
+                </div>
+                <div class="col-sm-4 col bg-success" style="height: 100px">
+                    <h4>A13</h4>
+                    <button type="button" ng-click="my_move(0,2)" class="btn btn-block btn-lg btn-link center-block">    
+                            {{game.cstate[0][2]}}
+                    </button>
+                </div>
+            </div>
+
+            <br>
+            <div class="raw" style="height: 100px">
+                <div class="col-sm-4 col bg-success" style="height: 100px">
+                    <h4>A21</h4>
+                    <button type="button" ng-click="my_move(1,0)" class="btn btn-block btn-lg btn-link center-block">    
+                            {{game.cstate[1][0]}}
+                    </button>
+                </div>
+                <div class="col-sm-4 col bg-warning" style="height: 100px">
+                    <h4>A22</h4>
+                    <button type="button" ng-click="my_move(1,1)" class="btn btn-block btn-lg btn-link center-block">    
+                            {{game.cstate[1][1]}}
+                    </button>
+                </div>
+                <div class="col-sm-4 col bg-success" style="height: 100px">
+                    <h4>A23</h4>
+                    <button type="button" ng-click="my_move(1,2)" class="btn btn-block btn-lg btn-link center-block">    
+                            {{game.cstate[1][2]}}
+                    </button>
+                </div>
+            </div>
+
+            <br>
+            <div class="raw" style="height: 100px">
+                <div class="col-sm-4 col bg-success" style="height: 100px">
+                    <h4>A31</h4>
+                    <button type="button" ng-click="my_move(2,0)" class="btn btn-block btn-lg btn-link center-block">    
+                            {{game.cstate[2][0]}}
+                    </button>
+                </div>
+                <div class="col-sm-4 col bg-warning" style="height: 100px">
+                    <h4>A32</h4>
+                    <button type="button" ng-click="my_move(2,1)" class="btn btn-block btn-lg btn-link center-block">    
+                            {{game.cstate[2][1]}}
+                    </button>
+                </div>
+                <div class="col-sm-4 col bg-success" style="height: 100px">
+                    <h4>A33</h4>
+                    <button type="button" ng-click="my_move(2,2)" class="btn btn-block btn-lg btn-link center-block">    
+                            {{game.cstate[2][2]}}
+                    </button>
+                </div>
+            </div>
+            <br>
+
+        <button type="button" ng-click="go_to_profile()" class="btn btn-md btn-info center-block">    
+            Back To Home
+        </button>
+
+    </div>
+
+</body>

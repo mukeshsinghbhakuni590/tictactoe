@@ -1,0 +1,111 @@
+
+<script src="../jsfiles/angular.min.js"></script>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../cssfiles/bootstrap.min.css">
+  <script src="../jsfiles/jquery.min.js"></script>
+  <script src="../jsfiles/bootstrap.min.js"></script>
+  <script src="../jsfiles/angular.js"></script>
+  <script src="../jsfiles/angular-animate.js"></script>
+  <script src="../jsfiles/angular-sanitize.js"></script>
+  <script src="../jsfiles/ui-bootstrap-tpls-2.5.0.js"></script>
+  <script src="../jsfiles/user_profile.js"></script>
+</head>
+
+<body style="background-color:rgb(126, 194, 126)">
+
+	<div class="raw" ng-app="myApp" ng-controller="myCtrl" style="margin-top:50px">
+
+		<div class="col-sm-4">
+			<h3 align="center"> <b>Running Games</b> </h3>
+			<table class="table table-striped">
+					<thead>
+					<tr>
+						<th>Game_id</th>
+						<th>Status</th>
+						<th>buttons</th>
+					</tr>
+					</thead>
+					<tbody ng-repeat="x in user_running_games">
+					<tr>
+						<td>{{x.game_id}}</td>
+						<td>{{x.status}}</td>
+						<td>
+							<button type="button" class="btn btn-success" ng-click="move_game(x.game_id)">
+								Play
+							</button>
+						</td>
+					</tr>
+					</tbody>
+			</table>
+			<div class="col-sm-4">
+				<button type="button" data-toggle="dropdown" class="btn btn-md btn-primary dropdown-toggle">    
+						Play New Game <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" > 
+					<li>Current Players</li>
+					<li ng-repeat= "x in users"> 
+						<button type="button" class="btn btn-link" ng-click="create_game_instance(x.userId)">{{x.userName}}</button> 
+					</li>
+				</ul>
+			</div>
+
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4">
+				<button  type="button" ng-click="chk_requests()" data-toggle="dropdown" class="btn btn-md btn-primary dropdown-toggle">    
+						Requested Games <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li ng-repeat="x in user_requests">
+						<button type="button" class="btn btn-link" ng-click="accept_game_request(x.game_id)">{{x.user1}}</button>
+					</li>
+				</ul>
+			</div>
+	 
+		</div>
+
+		<div class="col-sm-4">
+
+			<img src="../imgfiles/default.jpg" class="img-circle center-block" alt="Cinque Terre" width="300" height="235">
+
+			<h3 align="center"> <b>{{userinfo.userName}}</b> </h3>
+			<br>
+			<h3 align="center"> <b>{{userinfo.eMailAddress}}</b> </h3>
+			<br>
+			<h3 align="center"> <b>{{userinfo.alias}}</b> </h3>
+			<br>
+			<button type="button" ng-click="logout()" class="btn btn-block btn-danger ">    
+				Logout
+			</button>
+
+		</div>
+		<div class="col-sm-4">
+			<h3 align="center"> <b>Completed Games</b> </h3>
+			<table class="table table-striped">
+				<thead>
+				<tr>
+					<th>Game_Id</th>
+					<th>Winner_id</th>
+					<th></th>
+				</tr>
+				</thead>
+				<tbody ng-repeat="x in user_completed_games">
+				<tr>
+					<td>{{x.game_id}}</td>
+					<td>{{x.winner}}</td>
+					<td> 
+						<!--button>
+							Details
+						</button-->
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+
+</body>
+
